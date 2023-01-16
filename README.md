@@ -1,1 +1,1 @@
-# k2_js
+# K-Digital 2nd : Javascript
