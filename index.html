@@ -14,8 +14,32 @@
         <h1 id="docuTitle">자바스크립트<span id="h1_tag">color change</span></h1>
     </header>
     <main id="content">
-        <p>본문</p>
 
+        <div id="dicebox">
+            <div id="dice">
+                <img class="dice_img" src="" alt="">
+                <img class="answer_img" src="" alt="">
+            </div>
+        </div>
+        <!-- <div id="div1">본문</div> -->
+
+        <div id="numberPlay">
+            <div id="numberBox">
+            </div>
+            <form name="numberForm">
+                <fieldset>
+                    <legend>주사위의 번호를 예상해보세요!</legend>
+                    <input type="radio" name="num" value="1" id="n1"><label class="selector_span" for="n1">1</label>
+                    <input type="radio" name="num" value="2" id="n2"><label class="selector_span" for="n2">2</label>
+                    <input type="radio" name="num" value="3" id="n3"><label class="selector_span" for="n3">3</label>
+                    <input type="radio" name="num" value="4" id="n4"><label class="selector_span" for="n4">4</label>
+                    <input type="radio" name="num" value="5" id="n5"><label class="selector_span" for="n5">5</label>
+                    <input type="radio" name="num" value="6" id="n6"><label class="selector_span" for="n6">6</label>
+                </fieldset>
+            </form>
+            <input type="button" name="numberSubmit" id="result" class="btn" value="결과보기" onclick="numberPlay();">
+        </div>
+        
     </main>
 
 </body>
