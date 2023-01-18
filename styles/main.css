@@ -35,11 +35,23 @@ main {
     align-items: center;
 }
 
+#dice {
+    display: flex;
+    
+    margin: 0 auto;
+    height: 100px;
+}
+
 .btn {
     border: 1px solid #2e2e2e;
     margin: 10px 0;
     padding: 5px;
     width: 150px;
+}
+.btn:hover {
+    background-color: #2e2e2e;
+    color: #fff;
+    cursor: pointer;
 }
 #btn1:hover {
     background-color: #2e2e2e;
@@ -52,4 +64,38 @@ main {
 #btn3:hover {
     background-color: #2238dd;
     color: #fff;
+}
+
+
+/* radio
+/* Labels for checked inputs */
+input:checked + label {
+    color: red;
+  }
+  
+/* Radio element, when checked */
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #113a6b;
+    color: #ffffff;
+}
+fieldset {
+    width: 60%; 
+    padding: 2vw 2vw;
+    font-size: 2vw;
+    border: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
