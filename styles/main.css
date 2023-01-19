@@ -26,22 +26,41 @@ main {
     width: 100%;
     height: 90vh;
 
-    border: 1px solid #2e2e2e;
-
+    
     display: flex;
     flex-direction: column;
-
+    
     justify-content: center;
     align-items: center;
 }
-
-#dice {
-    display: flex;
-    
-    margin: 0 auto;
-    height: 100px;
+.contBox {
+    border: 1px solid #2e2e2e;
+    border-radius: 8px;
+    height: 250px;
+    padding: 30px;
 }
 
+#dicebox {
+    display: flex;
+    align-items: center;
+    height: 125px
+    
+}
+#dice img, #ox img{
+    margin: 10px;
+    height: 70px;
+}
+
+
+/* Content */
+legend {
+    font-size: 0.8em;
+}
+#numberPlay .btnbox {
+    text-align: center;
+}
+
+/* Buttons */
 .btn {
     border: 1px solid #2e2e2e;
     margin: 10px 0;

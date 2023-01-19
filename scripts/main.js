@@ -129,6 +129,7 @@ const throwDice =()=>{
 const numberPlay =()=> {
     const dices = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
     const divDicebox = document.querySelector("#dice");
+    const divOXbox = document.querySelector("#ox");
     const trDice = document.querySelector("#result");
     
    
@@ -136,24 +137,27 @@ const numberPlay =()=> {
      let resultForm = numberForm.num.value;
      console.log(resultForm+".png");
     
-    //trDice.addEventListener("click", ()=>{ //trDice.addEventListener 클릭이 걸려있어서 클릭 횟수 만큼 반복 실행되는 오류가 있었다.
-        const importDices = dices[Math.floor(Math.random()*dices.length)];
-        
+        //trDice.addEventListener("click", ()=>{ //trDice.addEventListener 클릭이 걸려있어서 클릭 횟수 만큼 반복 실행되는 오류가 있었다.
         const dicesImg = document.querySelector(".dice_img");
-        dicesImg.src = `주사위/${importDices}`; // 위에서 생성한 난수
         dicesImg.width = 80;
+        let importDices = "";
+        for(let i=0; i<6; i++) {
+            importDices = dices[Math.floor(Math.random()*dices.length)];
+            //setTimeout(dicesImg.src = `주사위/${importDices}`,1000);// 시간지연
+            dicesImg.src = `주사위/${importDices}`; // 위에서 생성한 난수
+        }
         divDicebox.append(dicesImg);
+
         const answerImg = document.querySelector(".answer_img");
         dicesImg.width = 70;
-        divDicebox.append(answerImg);
+        divOXbox.append(answerImg);
 
 
         console.log(importDices);
         console.log(dices)
         if(resultForm == "") {
             alert("예상 값을 입력해주세요!");
-        };
-        if(resultForm+".png" == importDices) {
+        } else if(resultForm+".png" == importDices) {
             alert("정답입니다!");
             answerImg.src = `주사위/o.png`;
         } else {
