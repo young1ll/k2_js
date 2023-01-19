@@ -1,2 +1,2 @@
 # K-Digital 2nd : Javascript
-0106: alert
+- Hosting Address : https://young1ll.github.io/k2_js/
