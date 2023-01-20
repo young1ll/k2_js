@@ -46,7 +46,7 @@ const numP1 =()=> {
                 console.log("오답입니다!");
                 answerImg.src = `주사위/x.png`;
             }
-        }, 800);
+        }, 600);
         
     });
 }
