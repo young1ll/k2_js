@@ -66,6 +66,19 @@ main {
 #numberPlay .btnbox {
     text-align: center;
 }
+.record_list {
+    float: right;
+    padding: 0;
+    list-style: none;
+}
+.record_list li{
+    font-size: 14px;
+    line-height: 15px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 5px 75px;
+}
+
 legend {
     font-size: 18px;
 }

@@ -1,6 +1,13 @@
 /*
 // DomAdd
 */
+let resultForm="";
+let importDices="";
+const recordList = document.createElement("ul");
+recordList.className = "record_list"
+let rList = document.createElement("li");
+rList.className = "r_list"
+
 const domAdd =()=> {
 // domAdd Initialization
     // 시작 버튼 생성
@@ -19,7 +26,18 @@ const domAdd =()=> {
     document.getElementById("content").append(endBtn);
     document.getElementById("endBtn").onclick = OffGame;
     document.getElementById("endBtn").style.display = "none";
+    //document.querySelector(".record_list").style.display = "none";
+
+    // // 기록표 생성
+    // const recordList = document.createElement("ul");
+    // document.querySelector("#content").append(recordList);
+    // recordList.innerHTML = `<li>선택한 번호 : ${resultForm} | 주사위 번호 : ${importDices}</li>`
 }
+
+
+
+
+
 // 시작 클릭 시
 const OnGame =()=> {
     document.getElementById("dicebox").style.display = "flex";
@@ -35,6 +53,11 @@ const OffGame =()=> {
     document.getElementById("endBtn").style.display = "none";
 }
 
+
+
+
+
+
 /*
 // ThrowDiceFunc
 */
@@ -44,13 +67,17 @@ const numP1 =()=> {
     const divOXbox = document.querySelector("#ox");
     
     const trDice = document.querySelector("#result"); // 제출
+    let answerImg="";
+    // trDice 클릭시 실행
     trDice.addEventListener("click", ()=>{
-        let resultForm = numberForm.num.value; //Select HTML form name => resultForm
+        //let resultForm = numberForm.num.value; //Select HTML form name => resultForm
+        resultForm = numberForm.num.value; //Select HTML form name => resultForm
         console.log("선택한 번호 : "+resultForm+".png"); // print resultForm
         //console.log(resultForm);
         const dicesImg = document.querySelector(".dice_img");
         dicesImg.width = 80;
-        let importDices = "";
+        //let importDices = "";
+        importDices = "";
         
         let delay = 0;
         for(let i=0; i<6; i++) {
@@ -66,7 +93,7 @@ const numP1 =()=> {
         }
         
         
-        const answerImg = document.querySelector(".answer_img");
+        answerImg = document.querySelector(".answer_img");
         dicesImg.width = 70;
         divOXbox.append(answerImg);
         setTimeout( ()=> {
@@ -83,6 +110,12 @@ const numP1 =()=> {
                 console.log("오답입니다!");
                 answerImg.src = `주사위/x.png`;
             }
+            trDice.value = "다시하기";
+            // 기록표 생성
+            
+            rList.innerHTML = `선택한 번호 : ${resultForm} | 주사위 번호 : ${importDices.split('.',1)}`
+            recordList.append(rList);
+            
         }, 600);
         
     });
