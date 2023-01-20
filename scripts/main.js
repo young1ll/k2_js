@@ -2,7 +2,8 @@
 //function domAdd() {
 //    console.log("Hello World!");
 //}
-
+///////////////////////////////////////////////////////
+//+ 사용중단
 const domAdd = () => {
     const btn1 = document.createElement("button");
     btn1.innerHTML = "확인1";
@@ -89,7 +90,7 @@ const domUpdate = () => {
 }
 
 /////////////////////////////////////////////////
-// Dice Field
+// Dice Field + 사용중단
 const addDiceButton =()=>{
     const btnDice = document.createElement("button");
     btnDice.innerHTML = "주사위 던지기";
@@ -125,61 +126,129 @@ const throwDice =()=>{
 
 
 /////////////////////////////////////////////////
-// Number Play
+// ThrowDiceFunc
+const numP1 =()=> {
+    const dices = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
+    const divDicebox = document.querySelector("#dice");
+    const divOXbox = document.querySelector("#ox");
+    let resultForm = numberForm.num.value; //Select HTML form name => resultForm
+    
+    const trDice = document.querySelector("#result"); // 제출
+    trDice.addEventListener("click", ()=>{
+        console.log("선택한 번호 : "+resultForm+".png"); // print resultForm
+        console.log(resultForm);
+        const dicesImg = document.querySelector(".dice_img");
+        dicesImg.width = 80;
+        let importDices = "";
+        
+        let delay = 0;
+        for(let i=0; i<6; i++) {
+            delay += 50;
+            setTimeout(async ()=> {
+                importDices = dices[Math.floor(Math.random()*dices.length)];
+                dicesImg.src = `주사위/${importDices}`; // 위에서 생성한 난수
+                divDicebox.append(dicesImg);
+                console.log("주사위 이미지1 : "+importDices); // print importDices
+            }, delay);// 시간지연
+        }
+        
+        const answerImg = document.querySelector(".answer_img");
+        dicesImg.width = 70;
+        divOXbox.append(answerImg);
+         
+    });
+}
+const numP2 =()=> {
+    ///////////////////////////////////////////////////////////////
+    // Validation values
+    if(resultForm == "") {
+        //alert("예상 값을 입력해주세요!");
+        console.log("예상 값을 입력해주세요!");
+    } else
+    if(resultForm+".png" == importDices) {
+        //alert("정답입니다!");
+        answerImg.src = `주사위/o.png`;
+        console.log("정답입니다!");
+    } else {
+        //alert("오답입니다!");
+        console.log("오답입니다!");
+        answerImg.src = `주사위/x.png`;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// Number Play => Execute by OnClick in HTML
 const numberPlay =()=> {
     const dices = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
     const divDicebox = document.querySelector("#dice");
     const divOXbox = document.querySelector("#ox");
     const trDice = document.querySelector("#result");
-    
-   
-     //const resultForm = numberForm.num;
-     let resultForm = numberForm.num.value;
-     console.log(resultForm+".png");
-    
-        //trDice.addEventListener("click", ()=>{ //trDice.addEventListener 클릭이 걸려있어서 클릭 횟수 만큼 반복 실행되는 오류가 있었다.
-        const dicesImg = document.querySelector(".dice_img");
-        dicesImg.width = 80;
-        let importDices = "";
-        for(let i=0; i<6; i++) {
+    let resultForm = numberForm.num.value; //Select HTML form name => resultForm
+    console.log("선택한 번호 : "+resultForm+".png"); // print resultForm
+    //trDice.addEventListener("click", ()=>{ //trDice.addEventListener 클릭이 걸려있어서 클릭 횟수 만큼 반복 실행되는 오류가 있었다.
+    const dicesImg = document.querySelector(".dice_img");
+    dicesImg.width = 80;
+    let importDices = "";
+
+
+    let delay = 0;
+    for(let i=0; i<6; i++) {
+        delay += 50;
+        setTimeout(async ()=> {
             importDices = dices[Math.floor(Math.random()*dices.length)];
-            //setTimeout(dicesImg.src = `주사위/${importDices}`,1000);// 시간지연
             dicesImg.src = `주사위/${importDices}`; // 위에서 생성한 난수
-        }
-        divDicebox.append(dicesImg);
+            divDicebox.append(dicesImg);
+            console.log("주사위 이미지1 : "+importDices); // print importDices
+        }, delay);// 시간지연
+    }
+    importDices = dices[Math.floor(Math.random()*dices.length)];
+    divDicebox.append(dicesImg);
+    console.log("주사위 이미지2 : "+importDices); // print importDices
 
-        const answerImg = document.querySelector(".answer_img");
-        dicesImg.width = 70;
-        divOXbox.append(answerImg);
+    const answerImg = document.querySelector(".answer_img");
+    dicesImg.width = 70;
+    divOXbox.append(answerImg);
 
-
-        console.log(importDices);
-        console.log(dices)
-        if(resultForm == "") {
-            alert("예상 값을 입력해주세요!");
-        } else if(resultForm+".png" == importDices) {
-            alert("정답입니다!");
-            answerImg.src = `주사위/o.png`;
-        } else {
-            alert("오답입니다!");
-            answerImg.src = `주사위/x.png`;
-        }
-    //});
-    // alert(diceNum);
-   
 
     
-    
+    //console.log(dices) // print dices
+    //console.log("주사위 이미지 : "+importDices); // print importDices
+    // Compare resultForm and importDices
+    if(resultForm == "") {
+        //alert("예상 값을 입력해주세요!");
+        console.log("예상 값을 입력해주세요!");
+    } else if(resultForm+".png" == importDices) {
+        //alert("정답입니다!");
+        answerImg.src = `주사위/o.png`;
+        console.log("정답입니다!");
+    } else {
+        //alert("오답입니다!");
+        console.log("오답입니다!");
+        answerImg.src = `주사위/x.png`;
+    }
 
 }
 
 
+
+
+
 /////////////////////////////////////////////////
 // js rendering
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { // Execute after DomContentLoaded 
 
-    document.getElementById("docuTitle").innerHTML = "K-digital";
+    document.getElementById("docuTitle").innerHTML = "Dice Game";
 
+    // 사용중단
     //Construct DOM Factor
     // domAdd();
     // domRead();
@@ -190,7 +259,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // throwDice();
 
     //numberPlay();
+    numP1();
+    //numP2();
 
 });
-
 
