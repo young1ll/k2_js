@@ -47,7 +47,8 @@ main {
 }
 
 #dicebox {
-    display: flex;
+    display: none;
+    /*display: flex;*/
     align-items: center;
     height: 125px
     
@@ -59,11 +60,14 @@ main {
 
 
 /* Content */
-legend {
-    font-size: 18px;
+#numberPlay {
+    display: none;
 }
 #numberPlay .btnbox {
     text-align: center;
+}
+legend {
+    font-size: 18px;
 }
 .btnbox {
     margin-top: 20px;
