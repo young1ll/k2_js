@@ -101,10 +101,12 @@ input[type="radio"] + label {
     cursor: pointer;
 }
 
-input[type="radio"]:checked + label {
-    background-color: #113a6b;
+input[type="radio"]:checked + label,
+input[type="radio"]:hover + label {
+    background-color: #000;
     color: #ffffff;
 }
+
 fieldset {
     width: 260px; 
     padding: 15px 15px 30px 15px;
